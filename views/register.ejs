@@ -23,16 +23,16 @@
      <h2>Welcome, You can register here</h2> 
 
      <div class="form"> 
-
+      <form action="/signup" method="POST">
       <div class="inputBox"> 
 
-       <input type="number" required> <i>Enrollment Number</i> 
+       <input type="number" id="enrollementNo" required name="enrollementNo"> <i>Enrollment Number</i> 
 
       </div> 
 
       <div class="inputBox"> 
 
-       <input type="password" required> <i>Password</i> 
+       <input type="password" required name ="password" id="password"> <i>Password</i> 
 
       <div class="inputBox"> 
         <br>
@@ -46,7 +46,7 @@
        <a href="/"><input type="submit" value="Register"></a> 
 
       </div> 
-
+    </form>
      </div> 
 
     </div> 
