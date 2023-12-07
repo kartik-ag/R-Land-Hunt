@@ -4,6 +4,7 @@ const express = require('express');
 const authRoutes = require('./routes/auth.routes');
 const app = express();
 const db = require('./data/database');
+const huntinfoController = require('./controllers/huntinfo.controller');
 app.use(authRoutes);
 
 app.use(express.json());
@@ -37,6 +38,8 @@ app.get('/huntinfo', (req, res) => {
 app.get('/hunt', (req, res) => {
     res.render('hunt');
 });
+
+app.post('/savehunt', bodyParser.urlencoded(), huntinfoController.storeData);
 
 app.get('/upcomings',(req,res)=>{
     res.render('upcomings');

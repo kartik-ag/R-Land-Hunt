@@ -11,7 +11,7 @@ class User{
         
         await db.getDb().collection('users').insertOne({
             enrollementNo: this.enrollementNo,
-            password: this.password
+            password: hashedPassword
         });
     }
 }
