@@ -7,7 +7,7 @@ const MongoClient = mongodb.MongoClient;
 let database;
 
 async function connectToDatabase() {
-    const client = await MongoClient.connect('mongodb+srv://agarwalkartik2018:4U2rDmJ9jtrtu8BO@rlandhunt.fpk6bx6.mongodb.net/?retryWrites=true&w=majority&ssl=false');
+    const client = await MongoClient.connect('mongodb+srv://agarwalkartik2018:4U2rDmJ9jtrtu8BO@rlandhunt.fpk6bx6.mongodb.net/?retryWrites=true&w=majority');
     database = client.db('hunt');
 }
 
