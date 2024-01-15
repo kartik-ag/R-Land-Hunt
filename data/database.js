@@ -1,17 +1,32 @@
 require('dotenv').config();
-const mongodb = require('mongodb');
 
 
-const MongoClient = mongodb.MongoClient;
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-let database;
 
-async function connectToDatabase() {
-    const client = await MongoClient.connect('mongodb+srv://agarwalkartik2018:4U2rDmJ9jtrtu8BO@rlandhunt.fpk6bx6.mongodb.net/?retryWrites=true&w=majority');
-    database = client.db('hunt');
+async function run() {
+    const uri = "mongodb+srv://agarwalkartik2018:TXK9GJqvbuDUvnqq@cluster0.uiorbaa.mongodb.net/?retryWrites=true&w=majority";
+
+    // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+    const client = new MongoClient(uri, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true,
+        }
+    });
+    try {
+        // Connect the client to the server	(optional starting in v4.7)
+        await client.connect();
+        // Send a ping to confirm a successful connection
+        await client.db("admin").command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    } finally {
+        // Ensures that the client will close when you finish/error
+        await client.close();
+    }
 }
-
-//atlas link
+run().catch(console.dir);
 
 function getDb() {
     if (!database) {
@@ -21,7 +36,7 @@ function getDb() {
 }
 
 module.exports = {
-    connectToDatabase: connectToDatabase,
+    connectToDatabase: run,
     getDb: getDb
 };
 
