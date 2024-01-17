@@ -18,24 +18,39 @@ const authRoutes = require('./routes/auth.routes');
 const app = express();
 
 
+// Import the 'http' module to create an HTTP server
 const http = require('http');
+// Create an HTTP server using the Express app
 const server = http.createServer(app);
-const WebSocket = require('ws');
-const wss = new WebSocket.Server({server});
 
+// Import the 'WebSocket' module for real-time communication
+const WebSocket = require('ws');
+// Create a WebSocket server instance attached to the HTTP server
+const wss = new WebSocket.Server({ server });
+
+// Import the database module
 const db = require('./data/database');
+// Import controllers for handling hunt information and upcoming events
 const huntinfoController = require('./controllers/huntinfo.controller');
 const upcomingsController = require('./controllers/upcomings.controller');
+
+// Import middleware and configuration modules
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token');
 const createSessionConfig = require('./config/session');
 const errorHandler = require('./middlewares/error-handler');
 const checkAuthStatus = require('./middlewares/check-auth');
+
+// Import controllers for team members, authentication, hunt start, hunt entry, and hunt editing
 const team_membersController = require('./controllers/team.controller');
 const authController = require('./controllers/auth.controller');
 const startHuntController = require('./controllers/starthunt.controller');
 const enterHuntController = require('./controllers/enterhunt.controller');
 const editHuntController = require('./controllers/edithunt.controller');
+
+// Import OAuth routes
 const Oauthroutes = require('./routes/Oauth.routes');
+
+// Note: It's a good practice to include comments explaining the purpose of each module or section of your code.
 
 
 app.use(cors({
