@@ -1,14 +1,22 @@
+// Load environment variables from a .env file
 require('dotenv').config();
+
+// Import necessary modules
 const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
 const csrf = require('csurf');
-const geolaocation = require('geolocation');
+const geolocation = require('geolocation'); // Note: Corrected typo in 'geolocation'
 const expressSession = require('express-session');
 const nodemailer = require('nodemailer');
+
+// Import authentication routes
 const authRoutes = require('./routes/auth.routes');
+
+// Create an instance of the Express application
 const app = express();
+
 
 const http = require('http');
 const server = http.createServer(app);
