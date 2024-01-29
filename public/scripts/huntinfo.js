@@ -68,9 +68,7 @@ function add(){
     container.appendChild(btn);
     btn.className = "dom-btn";
 
-    // let div = document.createElement('div'); // Create a div element
-    // div.className = 'signin'; 
-    // div.appendChild(); // Append the input to the div
+    
 
     document.getElementById('enter_btn').style.display = 'none';
 }
@@ -82,7 +80,7 @@ function openMap() {
     return new Promise((resolve, reject) => {
         document.getElementById('map').style.display = 'block';
         if (!map) {
-            map = L.map('map').setView([29.86499676312487, 77.89658008904541], 18);
+            map = L.map('map').setView([29.86499676312487, 77.89658008904541], 16);
         }
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

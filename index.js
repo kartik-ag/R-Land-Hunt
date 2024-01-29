@@ -268,10 +268,10 @@ app.post('/endHunt', (req, res) => {
         .then(() => {
             res.send('Collection dropped successfully');
         })
-        // .catch(err => {
-        //     console.error(err);
-        //     res.status(500).send('Error dropping collection');
-        // });
+        .catch(err => {
+            console.error(err);
+            res.status(500).send('Error dropping collection');
+        });
 });
 
 app.get('/team_members', bodyParser.urlencoded(), team_membersController.loadnames);
