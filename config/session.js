@@ -3,7 +3,7 @@ const expressSession = require('express-session');
 function createSessionStore() {
     const MongoDBstore = mongoDbStore(expressSession);
     const store = new MongoDBstore({
-        uri: "mongodb+srv://agarwalkartik2018:TXK9GJqvbuDUvnqq@cluster0.uiorbaa.mongodb.net/?retryWrites=true&w=majority",
+        uri: "mongodb://0.0.0.0:27017",
         collection: 'sessions',
         databaseName: 'hunt'
     });
