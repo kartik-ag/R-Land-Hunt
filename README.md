@@ -36,8 +36,8 @@ You can watch the demo Video by clicking the following link:-
 1. Clone this repo by running the following command :-
 
 ```bash
-  git init
   git clone https://github.com/kartik-ag/R-Land-Hunt.git
+  cd R-Land-Hunt
 ```
 
 2. Now install all the required packages(frontend & backend) by running the following commands :-
