@@ -41,7 +41,7 @@ function completeEdit(req, res) {
         console.log(hunt);
         res.render('huntinfo', {
             hunt: hunt,
-            huntNames:''
+            huntNames: ''
         });
     }).catch(function (err) {
         console.log(err);
@@ -79,41 +79,41 @@ function deleteClues(req, res) {
 }
 
 
-function deleteHunt(req,res){
+function deleteHunt(req, res) {
     const huntname = req.body.huntname;
     console.log(huntname);
-    database.getDb().collection('startedHunts').findOne({huntname:huntname}).then(function(hunt){
-        if(hunt){
+    database.getDb().collection('startedHunts').findOne({ huntname: huntname }).then(function (hunt) {
+        if (hunt) {
             res.render('menu')
         }
-        else{
-            database.getDb().collection('hunts').deleteOne({huntname:huntname}).then(function(){
-                console.log('done');    
-            }).catch(function(err){
+        else {
+            database.getDb().collection('hunts').deleteOne({ huntname: huntname }).then(function () {
+                console.log('done');
+            }).catch(function (err) {
                 console.log(err);
             });
 
-            database.getDb().collection('upcominghunts').deleteOne({huntname:huntname}).then(function(){
+            database.getDb().collection('upcominghunts').deleteOne({ huntname: huntname }).then(function () {
                 console.log('done');
-            }).catch(function(err){
+            }).catch(function (err) {
                 console.log(err);
             });
 
-            database.getDb().collection(huntname).drop().then(function(){
+            database.getDb().collection(huntname).drop().then(function () {
                 console.log('done');
-            }).catch(function(err){
+            }).catch(function (err) {
                 console.log(err);
             });
 
-            database.getDb().collection('enteredinto_'+huntname).drop().then(function(){
+            database.getDb().collection('enteredinto_' + huntname).drop().then(function () {
                 console.log('done');
-            }).catch(function(err){
+            }).catch(function (err) {
                 console.log(err);
             });
 
             res.redirect('/menu');
         }
-    }).catch(function(err){
+    }).catch(function (err) {
         console.log(err);
     }
     );
