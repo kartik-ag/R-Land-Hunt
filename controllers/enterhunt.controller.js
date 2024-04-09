@@ -30,7 +30,7 @@ async function enterHunt(req, res) {
 
     const preEnteredTeam = await database.getDb().collection(collectionName).findOne({ teamname: req.body.teamname });
     if (preEnteredTeam) {
-        res.redirect('/alregis');
+        // res.redirect('/alregis');
         return;
     }
     else {
