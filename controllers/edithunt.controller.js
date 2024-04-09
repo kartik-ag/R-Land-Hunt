@@ -55,7 +55,7 @@ function addClues(req, res) {
         huntname: huntname
     }).then(function (hunt) {
         console.log(hunt);
-        res.render('addclues', {
+        res.render('addClues', {
             hunt: hunt
         });
     }).catch(function (err) {
@@ -70,7 +70,7 @@ function deleteClues(req, res) {
         huntname: huntname
     }).then(function (hunt) {
         console.log(hunt);
-        res.render('deleteclues', {
+        res.render('deleteClues', {
             hunt: hunt
         });
     }).catch(function (err) {
