@@ -5,7 +5,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 
 async function connectToDatabase() {
-    const client = await MongoClient.connect('mongodb://0.0.0.0:27017');
+    const client = await MongoClient.connect(process.env.MONGODB_URI);
     database = client.db('hunt');
 }
 
